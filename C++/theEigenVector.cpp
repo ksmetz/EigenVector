@@ -135,7 +135,7 @@ int main(int argc, char *argv[]) {
 	}
 	fin.close();
 	ftime(&t0);
-	vector<contactRecord> records = straw(norm, fname, chrom, chrom, unit, binsize);
+	vector<contactRecord> records = straw("oe", norm, fname, chrom, chrom, unit, binsize);
 	long nonZer = records.size();
 	int *ii = (int *) malloc(nonZer*sizeof(int));
 	int *jj = (int *) malloc(nonZer*sizeof(int));
