@@ -61,7 +61,7 @@ int getMatrix(string fname, int binsize, string norm, int **i, int **j, float **
 	long nonZer = 0;
 	for (int i=0; i<chroms.size(); i++) {
 		for (int j=i; j<chroms.size();j++) {
-			int num = getSize(norm, fname, chroms.at(i), chroms.at(j), unit, binsize);
+			int num = getSize("oe", norm, fname, chroms.at(i), chroms.at(j), unit, binsize);
 			nonZer += num;
 		}
 	}
@@ -72,7 +72,7 @@ int getMatrix(string fname, int binsize, string norm, int **i, int **j, float **
 	vector<contactRecord> records;
 	for (int i=0; i<chroms.size(); i++) {
 		for (int j=i; j<chroms.size();j++) {
-			records = straw(norm, fname, chroms.at(i), chroms.at(j), unit, binsize);
+			records = straw("oe", norm, fname, chroms.at(i), chroms.at(j), unit, binsize);
 			long length=records.size();
 			for (long k=0; k<length; k++) {
 				ii[pos] = offset[i] + records[k].binX/binsize; 
@@ -150,7 +150,7 @@ int getMatrix(string fname, int binsize, string norm, int **i, int **j, double *
 	long nonZer = 0;
 	for (int i=0; i<chroms.size(); i++) {
 		for (int j=i; j<chroms.size();j++) {
-			int num = getSize(norm, fname, chroms.at(i), chroms.at(j), unit, binsize);
+			int num = getSize("oe", norm, fname, chroms.at(i), chroms.at(j), unit, binsize);
 			nonZer += num;
 		}
 	}
@@ -161,7 +161,7 @@ int getMatrix(string fname, int binsize, string norm, int **i, int **j, double *
 	vector<contactRecord> records;
 	for (int i=0; i<chroms.size(); i++) {
 		for (int j=i; j<chroms.size();j++) {
-			records = straw(norm, fname, chroms.at(i), chroms.at(j), unit, binsize);
+			records = straw("oe", norm, fname, chroms.at(i), chroms.at(j), unit, binsize);
 			long length=records.size();
 			for (long k=0; k<length; k++) {
 				ii[pos] = offset[i] + records[k].binX/binsize; 
@@ -239,7 +239,7 @@ int getMatrix(string fname, int binsize, string norm, int **i, int **j, double *
 	long nonZer = 0;
 	for (int i=0; i<chroms.size(); i++) {
 		for (int j=i; j<chroms.size();j++) {
-			int num = getSize(norm, fname, chroms.at(i), chroms.at(j), unit, binsize);
+			int num = getSize("oe", norm, fname, chroms.at(i), chroms.at(j), unit, binsize);
 			nonZer += num;
 		}
 	}
@@ -250,7 +250,7 @@ int getMatrix(string fname, int binsize, string norm, int **i, int **j, double *
 	vector<contactRecord> records;
 	for (int i=0; i<chroms.size(); i++) {
 		for (int j=i; j<chroms.size();j++) {
-			records = straw(norm, fname, chroms.at(i), chroms.at(j), unit, binsize);
+			records = straw("oe", norm, fname, chroms.at(i), chroms.at(j), unit, binsize);
 			long length=records.size();
 			for (long k=0; k<length; k++) {
 				ii[pos] = offset[i] + records[k].binX/binsize; 
@@ -318,13 +318,13 @@ int getMatrix(string fname, int binsize, string norm, int **i, int **j, float **
     	}
 	fin.close();
 	if (!found) return(0);
-	int nonZer = getSize(norm, fname, chr, chr, unit, binsize);
+	int nonZer = getSize("oe", norm, fname, chr, chr, unit, binsize);
 	int *ii = (int *) malloc(nonZer*sizeof(int));
 	int *jj = (int *) malloc(nonZer*sizeof(int));
 	float *xx = (float *) malloc(nonZer*sizeof(float));
 	vector<contactRecord> records;
 	long pos=0;
-	records = straw(norm, fname, chr, chr, unit, binsize);
+	records = straw("oe", norm, fname, chr, chr, unit, binsize);
 	long length=records.size();
 	for (long k=0; k<length; k++) {
 		ii[pos] = records[k].binX/binsize; 
